@@ -1,3 +1,4 @@
+//cycle exits or not
 import java.util.*;
 public class g4 {
 static class Edge {
@@ -8,7 +9,7 @@ this.src = s;
 this.dest = d;
 }
 }
-//graph1 - true
+//graph - true
 static void createGraph(ArrayList<Edge> graph[]) {
 for(int i=0; i<graph.length; i++) {
 graph[i] = new ArrayList<>();
@@ -25,7 +26,9 @@ vis[curr] = true;
 stack[curr] = true;
 for(int i=0; i<graph[curr].size(); i++) {
 Edge e = graph[curr].get(i);
-if(stack[e.dest]) { //cycle exists
+if(stack[e.dest]) 
+{                   
+//cycle exists
 return true;
 } else if(!vis[e.dest] && isCyclicUtil(graph, e.dest, vis, stack)) {
 return true;
